@@ -1,5 +1,9 @@
-$url = 'https://github.com/benpye/wsl-ssh-pageant/releases/latest/download/wsl-ssh-pageant-amd64.exe';
+$baseurl = 'https://github.com/benpye/wsl-ssh-pageant/releases/latest/download/';
+$files = @('wsl-ssh-pageant-amd64.exe', 'LICENSE');
 
-cd $PSScriptRoot;
+$agentroot = Join-Path $PSScriptRoot 'agent';
+cd $agentroot;
 #wget $url -OutFile wsl-ssh-pageant-amd64.exe
-curl.exe -LOJ $url;
+foreach ($file in $files) {
+    curl.exe -LOJ "$baseurl$file";
+}

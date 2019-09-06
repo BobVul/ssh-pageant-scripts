@@ -1,7 +1,8 @@
 function Start-Agent {
     $guid = New-Guid;
     $pipename = "ssh-pageant-$guid";
-    $command = Join-Path $PSScriptRoot 'wsl-ssh-pageant-amd64.exe';
+    $agentroot = Join-Path $PSScriptRoot 'agent';
+    $command = Join-Path $agentroot 'wsl-ssh-pageant-amd64.exe';
 
     if (!(Test-Path $command)) {
         Write-Host -ForegroundColor Red "Could not find agent at $command. Have you run downloadagent?";
