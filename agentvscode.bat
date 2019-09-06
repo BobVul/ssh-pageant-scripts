@@ -1,0 +1,1 @@
+@powershell -ExecutionPolicy Bypass -File %~dp0\lib\%~n0.ps1
